@@ -1,0 +1,406 @@
+---
+title: "Class 3: APIs"
+author: "Andrew Ba Tran"
+output: 
+  learnr::tutorial:
+      theme: lumen
+      highlight: espresso
+      progressive: true
+      allow_skip: false
+      includes:
+        before_body: _navbar.html
+runtime: shiny_prerendered
+# Do not index/display tutorial by setting `private: true`
+private: true
+description: >
+  Lessons and exercises to catch you up what R is and how to use it.
+---
+
+
+```{css, echo=FALSE}
+.pageContent {
+padding-top: 64px }
+```
+
+```{r setup, include=FALSE}
+packages <- c("tidyverse", "lubridate", "rvest", "httr", "remotes")
+if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
+  install.packages(setdiff(packages, rownames(installed.packages())), repos = "https://cran.us.r-project.org")  
+}
+
+#remotes::install_github("rstudio/gradethis", upgrade="always", quiet=TRUE)
+#remotes::install_github("rstudio/learnr", upgrade="always", quiet=TRUE)
+
+library(tidyverse)
+library(learnr)
+library(gradethis)
+library(lubridate)
+library(jsonlite)
+library(utils)
+
+base <- 'https://arcos-api.ext.nile.works/v1/combined_county_annual'
+
+county <- 'Palm Beach'
+state <- "FL"
+info_key <- 'key=WaPo'
+ 
+API_URL <- str_c(base, "?county=", county, "&state=", state, "&", info_key)
+
+
+```
+
+<span style="color:white">welcome to class!</span>
+
+## APIs explained 
+
+An API stands for an Application Programming Interface and is an intermediary between a dataset and others.
+
+It's a way for people outside someone's system to query and ask for specific slices of data from the system without getting complete access to their system.
+
+It's like a drive-thru menu at a fast food restaurant.
+
+| **Fast   Food**                   | **API service**                                            |
+|-------------------------------|--------------------------------------------------------|
+| Drive up                      | Go to their website                                    |
+| Look at the menu              | Look at their documentation                            |
+| Ask for specific items        | Submit a query to their end point                      |
+| Pay                           | Include an API key for security                        |
+| Receive food                  | Receive data, usually in JSON                          |
+| Eat it at home or in your car | Take that data and analyze it and turn it into a story |
+
+## Example API
+
+We're going to use the Washington Post [ARCOS API](https://arcos-api.ext.nile.works/__docs__/).
+
+It's a service that allows journalists and researchers to pull prescription opioid pharmacy purchasing data between 2006 and 2014 in both raw and summarized formats. It's a massive data set that took a lot of [legal fighting](https://www.washingtonpost.com/investigations/six-takeaways-from-the-deas-pain-pill-database/2019/07/16/1d82643c-a7e6-11e9-a3a6-ab670962db05_story.html) to obtain and journalists wanted to make sure the data was available to tell more stories with.
+
+This particular API server allows for experimenting with the queries in real time, which is useful for those who are visual learners and are new to APIs. Other API services aren't as user friendly.
+
+Visit [the link](https://arcos-api.ext.nile.works/__docs__/) for the API and then: 
+  
+1. Scroll down to summary and look for /v1/combined_county_annual
+2. Click on the GET button
+3. It should expand out
+4. Click on the 'Try It Out' button on the right
+5. Type in "WaPo"in the key and "Mingo" in County and "WV" in State.
+6. Click execute
+7. Scroll down to the 'Response body'
+
+
+
+```{r files-image1, out.width = "100%", echo=F}
+knitr::include_graphics("images/arcos_api.gif")
+```
+
+You've got some output!
+
+This is what's called JSON, which stands for Javascript Notation
+
+Find the 'Request URL' above the JSON output.
+
+Copy that URL and paste it into a new tab in your browser.
+  
+Looks interesting, right?
+
+```{r files-image2, out.width = "50%", echo=F}
+knitr::include_graphics("images/parameters.png")
+```
+
+First, let's take a look at the URL you copied and pasted.
+
+`https://arcos-api.ext.nile.works/v1/combined_county_annual?key=WaPo&county=Mingo&state=WV`
+
+There are several pieces to this API call. The first is the base URL:
+
+`https://arcos-api.ext.nile.works/`
+
+This part of the URL will be the same for all our calls to this API.
+
+The  `/v1/combined_county_annual` is the type of data we're callling from the api. 
+
+There were dozens of others
+
+.In the portal, you could see there were three inputs
+
+**Key, County, and State.**
+
+
+```{r files-image2b, out.width = "50%", echo=F}
+knitr::include_graphics("images/parameters.png")
+```
+
+And that's all represented in the url after the `?`
+
+The `key=WaPo` is the authorizaton token which tells the Washington Post server that I'm allowed to access the data.
+
+These keys tell the server what specific data you would like
+
+* `county=Mingo`
+* `state=WV`
+
+And they're all separated by a `&`
+
+Put that all together in the browser and you get the summarized json for Mingo, West Virginia.
+
+
+```{r files-image3, out.width = "70%", echo=F}
+knitr::include_graphics("images/api_browser.png")
+```
+
+
+Now that we’ve dissected the anatomy of an API, you can see how easy it is to build them! Basically anybody with an internet connection, an authorization token, and who knows the grammar of the API can access it. Most APIs are published with extensive documentation to help you understand the available options and parameters.
+
+There may be more complicated ways to access APIs that involve including headers, but for now we'll focus on this most basic type.
+
+So how do we get that into R?
+  
+## Import API data into R
+
+We simply use the R package **jsonlite** and use the function `fromJSON()`.
+
+`https://arcos-api.ext.nile.works/v1/combined_county_annual?key=WaPo&county=Mingo&state=WV`
+
+```{r new_import, exercise=TRUE}
+library(jsonlite)
+url <-"_____"
+ 
+mingo <- _______(url)
+
+mingo
+```
+
+```{r new_import-solution}
+library(jsonlite)
+url <-"https://arcos-api.ext.nile.works/v1/combined_county_annual?key=WaPo&county=Mingo&state=WV"
+ 
+mingo <- fromJSON(url)
+
+mingo
+```
+
+```{r new_import-hint}
+function starts with an *f*.
+```
+
+```{r new_import-check}
+grade_this_code()
+```
+
+Wow, that was pretty easy, right?
+
+Well, don't get used to it because JSON structures can get pretty complicated.
+
+Each structure can be pretty unique, especially nested JSON. 
+
+But a lot of basic APIs will give you this level of data that's simple to parse and transform into a dataframe for analysis.
+
+## Prep for looping
+
+What if we wanted multple counties of data?
+
+You know how to do loops now so instead of just typing things manually for every county you want, why not just create an array of the counties you want and loop through it?
+
+First, we need to set up our code so it can take in these new counties.
+
+We'll test it out manually.
+
+Run this chunk of code.
+
+Once you've done it successfully, replace "Mingo" with "Palm Beach"  and "WV" with "FL"
+
+```{r test, exercise=TRUE}
+library(jsonlite)
+base <- 'https://arcos-api.ext.nile.works/v1/combined_county_annual'
+
+county <- 'Mingo'
+state <- "WV"
+info_key <- 'key=WaPo'
+ 
+API_URL <- str_c(base, "?county=", county, "&state=", state, "&", info_key)
+
+fromJSON(API_URL)
+```
+
+
+```{r quiz1, echo=FALSE}
+quiz(caption = "1",
+  question("What's the output for asking for Palm Beach, FL?",
+    answer('URL using bad/illegal format or missing URL', correct=T),
+    answer('data with 6 columns and 9 rows'),
+    answer('Palm Beach in California, not Florida'),
+    answer('404 error'),
+    random_answer_order= TRUE
+  ))
+```
+
+Let's troubleshoot what happened.
+
+Look at the URL we created.
+
+```{r }
+API_URL 
+```
+
+Copy and paste the code into your browser and press enter.
+
+It works, right?
+
+So what's wrong?
+
+Look closer at what you pasted into the browser bar and how it appears when it loads:
+
+
+```{r files-image4, out.width = "100%", echo=F}
+knitr::include_graphics("images/special_chars.gif")
+```
+
+Aha! It's because URLs do not like spaces. Here's some more info from Google's [developer page](https://developers.google.com/maps/url-encoding). URLs require special characters like spaces, quotation marks, and percent signs to be converted into UTF-encoded values.
+
+Your browser, if it loaded the URL, automatically replaced the space with a special character `%20`.
+
+So, in our R code, `Palm Beach` needs to be `Palm%20Beach`
+
+The function `URLencode()` from the **utils** package should set this up.
+
+```{r}
+URLencode("Palm Beach")
+```
+
+Easy! Try it on your own below.
+
+```{r url_encode, exercise=TRUE}
+base <- 'https://arcos-api.ext.nile.works/v1/combined_county_annual'
+
+county <- 'Palm Beach'
+county <- ________(county)
+state <- "FL"
+info_key <- 'key=WaPo'
+ 
+API_URL <- str_c(base, "?county=", county, "&state=", state, "&", info_key)
+
+fromJSON(API_URL)
+```
+
+
+```{r url_encode-solution}
+base <- 'https://arcos-api.ext.nile.works/v1/combined_county_annual'
+
+county <- 'Palm Beach'
+county <- URLencode(county)
+state <- "FL"
+info_key <- 'key=WaPo'
+ 
+API_URL <- str_c(base, "?county=", county, "&state=", state, "&", info_key)
+
+fromJSON(API_URL)
+```
+
+```{r url_encode-hint}
+function starts with an *U*.
+
+```
+
+```{r url_encode-check}
+grade_this_code()
+```
+
+### Looping API calls
+
+Now that we’ve seen how to make an API call for one county, let’s create a simple loop to make several calls at a time. We'll use the for loop we used before.
+
+First, we’ll create a vector with the ID code for each county we want to get data for:
+
+Then we'll 
+
+Fill in the correct code for lines 4, 5, 6, 13, and 16. You may need to click and drag in the code to scroll to the bottom of the chunk.
+
+```{r API_loops, exercise=TRUE}
+counties <- c("Broward", "Miami-Dade", "Palm Beach")
+base <- 'https://arcos-api.ext.nile.works/v1/combined_county_annual'
+
+for (i in 1:_____(counties)) {
+  county <- counties[_]
+  county <- ________(county)
+  state <- "FL"
+  info_key <- 'key=WaPo'
+  API_URL <- str_c(base, "?county=", county, "&state=", state, "&", info_key)
+
+  df <- fromJSON(API_URL)
+
+  if (i __ 1) {
+    tidy_df <- df
+  } else {
+    tidy_df <- _____(tidy_df, df)
+  }
+}
+
+tidy_df
+```
+
+
+```{r API_loops-solution}
+counties <- c("Broward", "Miami-Dade", "Palm Beach")
+
+base <- 'https://arcos-api.ext.nile.works/v1/combined_county_annual'
+
+
+for (i in 1:length(counties)) {
+  
+  county <- counties[i]
+  county <- URLencode(county)
+  state <- "FL"
+  info_key <- 'key=WaPo'
+   
+  API_URL <- str_c(base, "?county=", county, "&state=", state, "&", info_key)
+
+  df <- fromJSON(API_URL)
+
+  if (i == 1) {
+    tidy_df <- df
+  } else {
+    tidy_df <- rbind(tidy_df, df)
+  }
+  
+}
+
+tidy_df
+```
+
+```{r API_loops-hint}
+You may need to look at your notes from Part 1 of Module 3
+```
+
+```{r API_loops-check}
+grade_this_code()
+```
+
+## Looking back
+
+You've gone through all the basic steps of pulling data from APIs.
+
+* Installed the "jsonlite" packages (later on you may need the **httr** package)
+* Make a "GET" request to the API to pull raw data
+* Parse that data from its raw form through JavaScript Object Notification (JSON) into a usable format
+* Write a loop to "page" through that data and retrieve the full data set
+
+
+Now, go forth and apply the same methodology to other [APIs](https://apilist.fun/)!
+
+I suggest you copy and paste the last chunk of code you ran into a script and save it so you can refer to it later! 
+
+If you want to explore the ARCOS data further, there's actually an [R](https://wpinvestigative.github.io/arcos/) and [Python](https://pypi.org/project/arcospy/) package that convert the API calls into functions so it's easier to use!
+
+## Class III - Part 3
+
+Whew, we did it.
+
+We're almost there!
+
+The last part of this module will be how to claw data from websites.
+
+Take a break and then to start the final section of module 3, type in your console:
+```
+learnr::run_tutorial("class_3_c_html_scraping", "adjclass")
+```
+
+

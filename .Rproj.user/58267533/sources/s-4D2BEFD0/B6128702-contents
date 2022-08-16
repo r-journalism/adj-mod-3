@@ -1,0 +1,106 @@
+
+
+## LOOK FOR THE JSON IN INSPECT ELEMENT
+
+# csvs!
+#https://dph.georgia.gov/covid-19-status-report
+#https://www.gasbuddy.com/gaspricemap?lat=38.9052763&lng=-76.98158769999999&z=13
+
+    
+    #conversion data
+    
+```
+{"primaryStations":[{"id":83179,"lat":38.9365,"lng":-77.0588,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":68319,"lat":38.90934,"lng":-77.04915,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":122363,"lat":38.905084,"lng":-77.048618,"price":"4.25","iscash":true,"tme":"","brand_id":0},{"id":94313,"lat":38.945274,"lng":-77.032421,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":85348,"lat":38.935445,"lng":-77.032914,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":68306,"lat":38.923833,"lng":-77.032411,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":81589,"lat":38.91436,"lng":-77.04188,"price":"4.09","iscash":true,"tme":"","brand_id":0},{"id":94507,"lat":38.951047,"lng":-77.026975,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":66399,"lat":38.941637,"lng":-77.025699,"price":"4.15","iscash":false,"tme":"","brand_id":0},{"id":107430,"lat":38.93281,"lng":-77.024017,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":106456,"lat":38.926597,"lng":-77.026348,"price":"4.19","iscash":false,"tme":"","brand_id":0},{"id":107429,"lat":38.917898,"lng":-77.02433,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":68297,"lat":38.9075,"lng":-77.02936,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":112651,"lat":38.920128,"lng":-77.000393,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":108794,"lat":38.909832,"lng":-77.007316,"price":"4.05","iscash":false,"tme":"","brand_id":0},{"id":122428,"lat":38.895393,"lng":-77.003256,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":86762,"lat":38.886248,"lng":-77.000787,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":82749,"lat":38.8711,"lng":-77.0156,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":79861,"lat":38.949651,"lng":-76.992411,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":107880,"lat":38.934568,"lng":-76.991149,"price":"4.03","iscash":false,"tme":"","brand_id":0},{"id":101647,"lat":38.925845,"lng":-76.990789,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":76748,"lat":38.9171,"lng":-76.9935,"price":"3.85","iscash":false,"tme":"","brand_id":0},{"id":128557,"lat":38.906613,"lng":-76.998665,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":160216,"lat":38.899757,"lng":-76.985172,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":90876,"lat":38.883472,"lng":-76.994036,"price":"4.79","iscash":false,"tme":"","brand_id":0},{"id":90878,"lat":38.881885,"lng":-76.988572,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":148230,"lat":38.943812,"lng":-76.9736,"price":"4.09","iscash":false,"tme":"","brand_id":0},{"id":79721,"lat":38.932915,"lng":-76.979923,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":66390,"lat":38.928835,"lng":-76.977103,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":79856,"lat":38.919982,"lng":-76.970572,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":74975,"lat":38.9075,"lng":-76.9782,"price":"4.05","iscash":false,"tme":"","brand_id":0},{"id":79850,"lat":38.906032,"lng":-76.979263,"price":"3.97","iscash":false,"tme":"","brand_id":0},{"id":117247,"lat":38.8975,"lng":-76.97,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":90880,"lat":38.874494,"lng":-76.972103,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":94676,"lat":38.951472,"lng":-76.966578,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":135443,"lat":38.938916999999996,"lng":-76.956378,"price":"3.98","iscash":false,"tme":"","brand_id":0},{"id":132671,"lat":38.930341,"lng":-76.958778,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":66392,"lat":38.921612,"lng":-76.960554,"price":"3.89","iscash":false,"tme":"","brand_id":0},{"id":66386,"lat":38.89644,"lng":-76.95893,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":90624,"lat":38.868794,"lng":-76.959971,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":161280,"lat":38.860144,"lng":-76.968521,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":132993,"lat":38.947102,"lng":-76.941551,"price":"3.89","iscash":false,"tme":"","brand_id":0},{"id":161989,"lat":38.92004,"lng":-76.95206,"price":"3.69","iscash":false,"tme":"","brand_id":0},{"id":141649,"lat":38.90206,"lng":-76.941987,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":138026,"lat":38.8926,"lng":-76.9514,"price":"3.89","iscash":true,"tme":"","brand_id":0},{"id":133016,"lat":38.889235,"lng":-76.937546,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":139020,"lat":38.870305,"lng":-76.944497,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":90623,"lat":38.865696,"lng":-76.950519,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":144374,"lat":38.947733,"lng":-76.929874,"price":"4.19","iscash":false,"tme":"","brand_id":0},{"id":134171,"lat":38.9391,"lng":-76.9357,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":141828,"lat":38.9329,"lng":-76.9331,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":51022,"lat":38.928347,"lng":-76.930365,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":127814,"lat":38.910614,"lng":-76.935149,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":139019,"lat":38.898138,"lng":-76.925354,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":197071,"lat":38.87805,"lng":-76.931232,"price":"3.87","iscash":false,"tme":"","brand_id":0},{"id":159049,"lat":38.872504,"lng":-76.926081,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":201508,"lat":38.939325,"lng":-76.910007,"price":"3.83","iscash":false,"tme":"","brand_id":0},{"id":134172,"lat":38.935955,"lng":-76.918278,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":162710,"lat":38.904636,"lng":-76.920743,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":135228,"lat":38.894142,"lng":-76.91049,"price":"3.97","iscash":false,"tme":"","brand_id":0},{"id":159143,"lat":38.865662,"lng":-76.915639,"price":"3.89","iscash":true,"tme":"","brand_id":0}],"secondaryStations":[{"id":117009,"lat":38.900475,"lng":-77.055893,"price":"4.33","iscash":true,"tme":"","brand_id":0},{"id":68311,"lat":38.91676,"lng":-77.03409,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":66396,"lat":38.940032,"lng":-77.025372,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":100309,"lat":38.913664,"lng":-77.017312,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":125824,"lat":38.911289,"lng":-77.01063,"price":"4.09","iscash":false,"tme":"","brand_id":0},{"id":107318,"lat":38.935904,"lng":-76.992899,"price":"4.49","iscash":true,"tme":"","brand_id":0},{"id":83022,"lat":38.9145,"lng":-76.9891,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":153162,"lat":38.910633,"lng":-76.985235,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":130294,"lat":38.901,"lng":-76.9854,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":90877,"lat":38.881811,"lng":-76.989937,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":83025,"lat":38.916964,"lng":-76.972191,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":66389,"lat":38.916902,"lng":-76.979175,"price":"4.05","iscash":false,"tme":"","brand_id":0},{"id":79852,"lat":38.89883,"lng":-76.97438,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":130295,"lat":38.901081,"lng":-76.983049,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":90879,"lat":38.874287,"lng":-76.97319,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":90626,"lat":38.873581,"lng":-76.970056,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":94675,"lat":38.951741,"lng":-76.967173,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":135444,"lat":38.939371,"lng":-76.955592,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":128919,"lat":38.933838,"lng":-76.95367,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":66397,"lat":38.934268,"lng":-76.964781,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":66391,"lat":38.920992,"lng":-76.959489,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":139021,"lat":38.859805,"lng":-76.967916,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":139018,"lat":38.900734,"lng":-76.94369,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":118339,"lat":38.891563,"lng":-76.938818,"price":"3.93","iscash":false,"tme":"","brand_id":0},{"id":133015,"lat":38.890156,"lng":-76.938066,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":135260,"lat":38.938789,"lng":-76.922291,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":127813,"lat":38.908203,"lng":-76.937146,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":51016,"lat":38.870333,"lng":-76.922548,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":110427,"lat":38.939626,"lng":-76.918542,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":151341,"lat":38.905255,"lng":-76.917189,"price":"--","iscash":false,"tme":"","brand_id":0},{"id":143706,"lat":38.896008,"lng":-76.908191,"price":"3.99","iscash":false,"tme":"","brand_id":0},{"id":88849,"lat":38.862354,"lng":-76.91226,"price":"--","iscash":false,"tme":"","brand_id":0}]}
+  
+  https://locations.wafflehouse.com/
+    
+    
+    
+    
+    
+library(tidyverse)
+library(rvest)
+
+
+scrape_amazon <- function(ASIN, page_num){
+  
+  url_reviews <- paste0("https://www.amazon.co.uk/product-reviews/",ASIN,"/?pageNumber=",page_num)
+  url <- "https://www.amazon.com/product-reviews/B000ORX6WI/?pageNumber=1"
+  doc <- read_html(url_reviews) # Assign results to `doc`
+  
+  # Review Title
+  doc %>% 
+    html_nodes("[class='a-size-base a-link-normal review-title a-color-base review-title-content a-text-bold']") %>%
+    html_text() -> review_title
+  
+  # Review Text
+  doc %>% 
+    html_nodes("[class='a-size-base review-text review-text-content']") %>%
+    html_text() -> review_text
+  
+  # Number of stars in review
+  doc %>%
+    html_nodes("[data-hook='review-star-rating']") %>%
+    html_text() -> review_star
+  
+  # Return a tibble
+  tibble(review_title,
+         review_text,
+         review_star,
+         page = page_num) %>% return()
+}
+
+scrape_amazon(ASIN = "0007477155", page_num = 5) %>%
+  head()
+
+
+
+library(httr)
+
+url <- "https://covid-19-statistics.p.rapidapi.com/reports/total"
+
+queryString <- list(date = c("2022-04-07")
+
+response <- VERB("GET", url, add_headers('X-RapidAPI-Key' = '23f0836974msh45395505741af14p1ea415jsn714fd80f9f0a', 'X-RapidAPI-Host' = 'covid-19-statistics.p.rapidapi.com'), query = queryString, content_type("application/octet-stream"))
+
+test <- content(response, "text")
+
+library(jsonlite)
+
+fromJSON(test)$data$deaths
+
+
+## amazon test
+
+url <- "https://www.amazon.com/Yankee-Candle-Large-Midsummers-Night/product-reviews/B000ORX6WI/ref=cm_cr_dp_d_show_all_btm?ie=UTF8&reviewerType=all_reviews"
+
+# test it out
+read_html(url) 
+
+
+# looked at inspect element and noticed div.a-row was consistent
+# test it
+read_html(url) %>% 
+  html_nodes(".a-row")
+
+
+# okay which of these?
+
+class="a-size-base review-text review-text-content"
+
+read_html(url) %>% 
+  html_nodes('.review-rating') 
+
+             
+
+ratings <- read_html(url) %>% 
+  html_nodes('.review-star-rating') %>% 
+  html_text()
+
+dates <- read_html(url) %>% 
+  html_nodes('#cm_cr-review_list .review-date') %>% 
+  html_text()
+
+reviews <- read_html(url) %>% 
+  html_nodes('.review-text-content span') %>% 
+  html_text() 
